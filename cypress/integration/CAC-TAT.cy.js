@@ -158,7 +158,7 @@ describe('Central de Atendimento ao Cliente TAT', function () {
             .and('have.attr','target','_blank')//E valida se o atributo target do elemento é _blank.
     })
 
-    it.only('Acessa a página de privacidade removendo o target e então clicando no link',()=>{
+    it('Acessa a página de privacidade removendo o target e então clicando no link',()=>{
         cy.contains('a','Política de Privacidade')//→ seleciona a tag <a> cujo conteudo é Política de Privacidade.
             .invoke('removeAttr','target')//invoca a função remover o atributo, depois a o que quer remover 
             .click()
