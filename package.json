@@ -1,29 +1,27 @@
 {
-  "name": "cypress-do-zero-a-nuvem",
+  "name": "cypress-basico-v2-main",
   "version": "1.0.0",
-  "description": "Curso 'Cypress, do Zero à Nuvem' da Escola Talking About Testing.",
-  "main": "src/index.html",
+  "description": "É necessário ter o **Node.js**, **npm** e **Git** instalados para executar este projeto.",
+  "main": "index.js",
   "scripts": {
   "cy:open": "cypress open",
   "test": "cypress run"
-},
+  },
+  
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/wlsf82/cypress-do-zero-a-nuvem.git"
+    "url": "git+https://github.com/Bcampos-QA/Cypress.git"
   },
-  "keywords": [
-    "Testing",
-    "Cypress.io",
-    "Talking About Testing",
-    "Cypress, do Zero à Nuvem",
-    "Cypress Cloud",
-    "GitHub Actions",
-    "Escola TAT"
-  ],
-  "author": "Walmyr <wlsf82@gmail.com> (https://walmyr.dev/)",
-  "license": "MIT",
-  "homepage": "https://github.com/wlsf82/cypress-do-zero-a-nuvem#readme",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Bcampos-QA/Cypress/issues"
+  },
+  "homepage": "https://github.com/Bcampos-QA/Cypress#readme",
   "devDependencies": {
-    "cypress": "^13.12.0"
+    "cypress": "^14.4.0"
   }
+
 }
