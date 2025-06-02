@@ -78,7 +78,7 @@ describe('Central de Atendimento ao Cliente TAT', function () {
 
         cy.get('.error').should('be.visible')
     })
-    it(' envia o formuário com sucesso usando um comando customizado', function () {//comando  da página commands.js
+    it.only(' envia o formuário com sucesso usando um comando customizado', function () {//comando  da página commands.js
         cy.fillMandatoryFieldsAndSubmit()
 
         cy.get('.success').should('be.visible')
@@ -154,7 +154,7 @@ describe('Central de Atendimento ao Cliente TAT', function () {
 })
     it('Verifica que a politica de privacidade abre em outra aba sem a necessidade de um clique', ()=>{
         cy.contains('a','Política de Privacidade')//→ seleciona a tag <a> cujo conteudo é Política de Privacidade.
-            should('have.attr','href','privacy.html')//valida se o atributo href com valor privacy.html
+            .should('have.attr','href','privacy.html')//valida se o atributo href com valor privacy.html
             .and('have.attr','target','_blank')//E valida se o atributo target do elemento é _blank.
     })
 
