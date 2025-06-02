@@ -6,7 +6,7 @@ describe('Central de Atendimento ao Cliente TAT', function () {
         cy.visit('./src/index.html')//cy.visit = caminho relativo da url
     })
 
-    it('verifica o título da aplicação', function () {
+    it('verifica o título da aplicaçãoo', function () {
         cy.title().should('be.equal', 'Central de Atendimento ao Cliente TAT');//cy.title=verifica o titulo/.should=está dizendo o que espera que aconteça
     })
 
