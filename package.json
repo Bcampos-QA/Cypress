@@ -9,8 +9,8 @@
   },
   
   "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Bcampos-QA/Cypress.git"
+  "type": "git",
+  "url": "git+https://github.com/Bcampos-QA/Cypress.git"
   },
   "keywords": [],
   "author": "",
