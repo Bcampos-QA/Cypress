@@ -222,11 +222,49 @@ describe('Central de Atendimento ao Cliente TAT',() => {
 
     })
 
-    it.only('preenche o campo da área de texto usando o comando invoke', () => {
-    cy.get('#open-text-area') // Seleciona o elemento com o ID 'open-text-area' (uma área de texto)
-        .invoke('val', 'um texto qualquer') // Usa o comando invoke para definir diretamente o valor do campo(CRLT + V)
-        .should('have.value', 'um texto qualquer') // Verifica se o campo agora possui o valor esperado
+    it('preenche o campo da área de texto usando o comando invoke', () => {
+        cy.get('#open-text-area') // Seleciona o elemento com o ID 'open-text-area' (uma área de texto)
+            .invoke('val', 'um texto qualquer') // Usa o comando invoke para definir diretamente o valor do campo(CRLT + V)
+            .should('have.value', 'um texto qualquer') // Verifica se o campo agora possui o valor esperado
+    })
+
+   it('faz uma requisição HTTP', () => {
+    // Faz uma requisição HTTP para a URL especificada
+    cy.request('https://cac-tat-v3.s3.eu-central-1.amazonaws.com/index.html')
+        .as('getRequest')  // Dá um nome (alias) para a requisição, para usar depois
+
+    // Verifica se o status da resposta é 200 (OK)
+    cy.get('@getRequest') // Recupera a requisição pelo alias
+        .its('status')    // Acessa o status da resposta
+        .should('be.equal', 200) // Verifica se o status é igual a 200
+
+    // Verifica se o statusText da resposta é 'OK'
+    cy.get('@getRequest') // Recupera a requisição de novo
+        .its('statusText') // Acessa o statusText (texto do status)
+        .should('be.equal', 'OK') // Verifica se o statusText é 'OK'
+
+    // Verifica se o body da resposta contém o texto 'CAC TAT'
+    cy.get('@getRequest') // Recupera a requisição mais uma vez
+        .its('body')      // Acessa o corpo da resposta
+        .should('include', 'CAC TAT') // Verifica se o body inclui o texto 'CAC TAT'
 })
 
+   it.only('Encontre o gato', () => {
+    // Seleciona o elemento com o id "cat"
+    cy.get('#cat')
+        .should('not.be.visible')   // Verifica se o gato NÃO está visível
+        .invoke('show')             // Faz o gato aparecer (mostra o elemento)
+        .should('be.visible')       // Verifica se o gato agora está visível
+        .invoke('hide')             // Esconde o gato novamente
+        .should('not.be.visible')   // Verifica se o gato está invisível de novo
+
+    // Seleciona o elemento com o id "title"
+    cy.get('#title')
+        .invoke('text', 'CAT TAT')  // Altera o texto do título para 'CAT TAT'
+
+    // Seleciona o elemento com o id "subtitle"
+    cy.get('#subtitle')
+        .invoke('text', 'Eu Amo Gatos!')  // Altera o texto do subtítulo para 'Eu Amo Gatos!'
+})
     
 })
