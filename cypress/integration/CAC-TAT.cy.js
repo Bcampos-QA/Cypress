@@ -249,7 +249,7 @@ describe('Central de Atendimento ao Cliente TAT',() => {
         .should('include', 'CAC TAT') // Verifica se o body inclui o texto 'CAC TAT'
 })
 
-   it.only('Encontre o gato', () => {
+   it('Encontre o gato', () => {
     // Seleciona o elemento com o id "cat"
     cy.get('#cat')
         .should('not.be.visible')   // Verifica se o gato NÃO está visível
